@@ -449,9 +449,22 @@ p {
 # Hero
 --------------------------------------------------------------*/
 #hero {
-  background: url("../img/home-bg.jpg") repeat scroll center center/cover;
+  position: relative;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../img/me_home.png") repeat scroll center center/cover;
+  filter: blur(6px);
+  z-index: -1; /* Pour que le pseudo-élément soit derrière le contenu du #hero */
 }
 
 #hero .hero-content {
@@ -682,15 +695,26 @@ p {
 }
 
 #portfolio .portfolio-item .portfolio-info {
-  opacity: 0;
   position: absolute;
-  left: 30px;
-  right: 30px;
   bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 3;
-  transition: all ease-in-out 0.3s;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(231, 225, 225, 0.9);
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+}
+
+#portfolio .portfolio-item .portfolio-info .links {
+  display: flex;
+  gap: 10px;
+}
+
+#portfolio .portfolio-item:hover .portfolio-info {
+  opacity: 1;
 }
 
 #portfolio .portfolio-item .portfolio-info h4 {
@@ -738,7 +762,8 @@ p {
 }
 
 .portfolio-details .portfolio-details-slider img {
-  width: 100%;
+  height: 700px;
+  width: 850px;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
@@ -795,6 +820,11 @@ p {
   padding: 0;
 }
 
+.portfolio-container img {
+  width: 480px;
+  height: 320px;
+}
+
 /*--------------------------------------------------------------
 # Journal
 --------------------------------------------------------------*/
@@ -829,6 +859,11 @@ p {
 .journal-block .journal-info .journal-txt {
   padding: 25px 0px;
   position: relative;
+}
+
+.logo-livre {
+  width: 25px;
+  height: 25px;
 }
 
 .journal-block .journal-info .journal-txt h4 a {
