@@ -244,6 +244,10 @@
     selector: '.portfolio-lightbox'
   });
 
+  document.getElementById('download-btn').addEventListener('click', function() {
+    window.location.href = 'assets/cv/CV_2024.pdf';
+});
+
   /**
    * Portfolio details slider
    */
